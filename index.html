@@ -4,232 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desert Bloom Events</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html, body {
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* Main container */
-        .container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            padding: 20px;
-        }
-        
-        /* Logo section */
-        .logo-section {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .logo-text {
-            font-size: 3.5em;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 5px;
-            line-height: 1;
-        }
-        
-        .logo-subtext {
-            font-size: 1.8em;
-            font-weight: 400;
-            letter-spacing: 3px;
-        }
-        
-        /* Circles */
-        .circles {
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            margin-top: 50px;
-        }
-        
-        .circle {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            position: absolute;
-            opacity: 0.9;
-        }
-        
-        .circle-orange {
-            background-color: #FF6B35;
-            left: -25px;
-        }
-        
-        .circle-teal {
-            background-color: #4ECDC4;
-            left: 5px;
-        }
-        
-        /* Mountain effect */
-        .mountains {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .mountain-layer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: white;
-        }
-        
-        /* Create a speckled/spray paint mountain effect */
-        .mountain-1 {
-            height: 180px;
-            background: 
-                radial-gradient(circle at 20% 80%, transparent 30%, white 30.5%),
-                radial-gradient(circle at 50% 70%, transparent 25%, white 25.5%),
-                radial-gradient(circle at 80% 75%, transparent 28%, white 28.5%);
-            filter: url(#roughPaper);
-        }
-        
-        .mountain-2 {
-            height: 140px;
-            background: white;
-            clip-path: polygon(
-                0% 100%,
-                0% 60%,
-                15% 40%,
-                25% 45%,
-                35% 30%,
-                45% 35%,
-                55% 25%,
-                65% 30%,
-                75% 20%,
-                85% 25%,
-                95% 15%,
-                100% 20%,
-                100% 100%
-            );
-        }
-        
-        /* Speckle overlay */
-        .speckles {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 250px;
-            opacity: 0.6;
-            background-image: 
-                radial-gradient(circle at 10% 90%, white 1px, transparent 1px),
-                radial-gradient(circle at 25% 85%, white 0.5px, transparent 0.5px),
-                radial-gradient(circle at 40% 88%, white 1.5px, transparent 1.5px),
-                radial-gradient(circle at 55% 92%, white 0.8px, transparent 0.8px),
-                radial-gradient(circle at 70% 87%, white 1px, transparent 1px),
-                radial-gradient(circle at 85% 89%, white 1.2px, transparent 1.2px),
-                radial-gradient(circle at 15% 70%, white 0.5px, transparent 0.5px),
-                radial-gradient(circle at 30% 65%, white 1px, transparent 1px),
-                radial-gradient(circle at 45% 60%, white 0.8px, transparent 0.8px),
-                radial-gradient(circle at 60% 55%, white 1.5px, transparent 1.5px),
-                radial-gradient(circle at 75% 50%, white 1px, transparent 1px),
-                radial-gradient(circle at 90% 45%, white 0.5px, transparent 0.5px);
-            background-size: 100% 100%;
-            background-position: 0 0;
-            animation: floatSpeckles 20s ease-in-out infinite;
-        }
-        
-        @keyframes floatSpeckles {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-        
-        /* Bottom bar */
-        .bottom-bar {
-            position: relative;
-            background: white;
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-        }
-        
-        .event-button {
-            background: #000;
-            color: #fff;
-            padding: 16px 36px;
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: 600;
-            border: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        
-        .event-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-            background: #1a1a1a;
-        }
-        
-        .event-button::after {
-            content: '→';
-            font-size: 1.2em;
-            transition: transform 0.3s ease;
-        }
-        
-        .event-button:hover::after {
-            transform: translateX(3px);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .logo-text {
-                font-size: 2.5em;
-            }
-            
-            .logo-subtext {
-                font-size: 1.4em;
-                letter-spacing: 2px;
-            }
-            
-            .circles {
-                transform: translate(-50%, -50%) scale(0.8);
-            }
-            
-            .bottom-bar {
-                height: 100px;
-            }
-            
-            .event-button {
-                font-size: 1em;
-                padding: 14px 28px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -242,68 +17,61 @@
         </div>
         
         <div class="mountains">
-            <div class="mountain-layer mountain-1"></div>
-            <div class="mountain-layer mountain-2"></div>
-            <div class="speckles"></div>
+            <!-- Multiple mountain layers for depth -->
+            <svg class="mountain-svg" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                <!-- Back mountain layer -->
+                <path class="mountain-back" d="M0,200 L0,140 C100,120 150,100 250,90 C350,80 400,70 500,85 C600,100 650,60 750,50 C850,40 900,45 1000,35 C1100,25 1150,30 1200,20 L1200,200 Z" fill="rgba(255,255,255,0.3)"/>
+                
+                <!-- Middle mountain layer -->
+                <path class="mountain-middle" d="M0,200 L0,160 C50,150 100,130 200,120 C300,110 350,100 450,115 C550,130 600,90 700,80 C800,70 850,75 950,65 C1050,55 1100,60 1200,50 L1200,200 Z" fill="rgba(255,255,255,0.5)"/>
+                
+                <!-- Front mountain layer with texture -->
+                <defs>
+                    <pattern id="speckle" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <circle cx="5" cy="5" r="0.5" fill="white" opacity="0.8"/>
+                        <circle cx="15" cy="8" r="0.3" fill="white" opacity="0.6"/>
+                        <circle cx="25" cy="12" r="0.7" fill="white" opacity="0.9"/>
+                        <circle cx="35" cy="6" r="0.4" fill="white" opacity="0.7"/>
+                        <circle cx="8" cy="18" r="0.6" fill="white" opacity="0.8"/>
+                        <circle cx="20" cy="22" r="0.5" fill="white" opacity="0.9"/>
+                        <circle cx="30" cy="25" r="0.3" fill="white" opacity="0.6"/>
+                        <circle cx="12" cy="30" r="0.8" fill="white" opacity="0.9"/>
+                        <circle cx="28" cy="35" r="0.4" fill="white" opacity="0.7"/>
+                        <circle cx="38" cy="28" r="0.5" fill="white" opacity="0.8"/>
+                    </pattern>
+                    
+                    <mask id="mountain-mask">
+                        <rect width="100%" height="100%" fill="white"/>
+                        <rect width="100%" height="100%" fill="url(#speckle)"/>
+                    </mask>
+                </defs>
+                
+                <!-- Main mountain with speckled edge -->
+                <path class="mountain-front" d="M0,200 L0,180 C30,175 80,160 150,150 C220,140 270,125 350,130 C430,135 480,115 560,105 C640,95 690,90 770,85 C850,80 900,82 980,75 C1060,68 1110,70 1200,65 L1200,200 Z" fill="white" mask="url(#mountain-mask)"/>
+                
+                <!-- Additional speckles -->
+                <g class="floating-speckles">
+                    <circle cx="100" cy="165" r="1" fill="white" opacity="0.6"/>
+                    <circle cx="200" cy="145" r="0.8" fill="white" opacity="0.7"/>
+                    <circle cx="300" cy="135" r="1.2" fill="white" opacity="0.5"/>
+                    <circle cx="400" cy="125" r="0.6" fill="white" opacity="0.8"/>
+                    <circle cx="500" cy="115" r="0.9" fill="white" opacity="0.6"/>
+                    <circle cx="600" cy="105" r="1.1" fill="white" opacity="0.7"/>
+                    <circle cx="700" cy="95" r="0.7" fill="white" opacity="0.8"/>
+                    <circle cx="800" cy="88" r="1" fill="white" opacity="0.6"/>
+                    <circle cx="900" cy="82" r="0.8" fill="white" opacity="0.7"/>
+                    <circle cx="1000" cy="78" r="0.9" fill="white" opacity="0.8"/>
+                </g>
+            </svg>
         </div>
     </div>
     
     <div class="bottom-bar">
-        <a href="/filmfestivals" class="event-button">
+        <a href="file:///Users/turner/Documents/Web%20Dev/desertbloom.events/filmfestival/index.html" class="event-button">
             Film Festival
         </a>
     </div>
     
-    <!-- SVG Filter for rough texture -->
-    <svg width="0" height="0">
-        <filter id="roughPaper">
-            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise" />
-            <feDiffuseLighting in="noise" lighting-color="white" surfaceScale="1">
-                <feDistantLight azimuth="45" elevation="60" />
-            </feDiffuseLighting>
-        </filter>
-    </svg>
-    
-    <script>
-        // Add subtle parallax effect on mouse move
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            const circles = document.querySelector('.circles');
-            const mountains = document.querySelectorAll('.mountain-layer');
-            
-            if (circles) {
-                circles.style.transform = `translate(calc(-50% + ${(x - 0.5) * 20}px), calc(-50% + ${(y - 0.5) * 20}px))`;
-            }
-            
-            mountains.forEach((mountain, index) => {
-                const speed = (index + 1) * 0.5;
-                mountain.style.transform = `translateX(${(x - 0.5) * speed * 10}px)`;
-            });
-        });
-        
-        // Add entrance animation
-        window.addEventListener('load', () => {
-            document.querySelector('.logo-section').style.animation = 'fadeInUp 1s ease-out';
-            document.querySelector('.bottom-bar').style.animation = 'fadeInUp 1s ease-out 0.3s backwards';
-        });
-        
-        // Define animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
