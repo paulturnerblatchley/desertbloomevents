@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main container */
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+/* Logo section */
+.logo-section {
+    text-align: center;
+    position: relative;
+}
+
+.logo-text {
+    font-size: 8em;
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 60px;
+}
+
+/* Circles with animation */
+.circles {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 60px;
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+}
+
+.circle-orange {
+    background-color: #FF6B35;
+    left: 0;
+    animation: circleOrange 4s ease-in-out infinite;
+}
+
+.circle-teal {
+    background-color: #4ECDC4;
+    right: 0;
+    animation: circleTeal 4s ease-in-out infinite;
+}
+
+@keyframes circleOrange {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(15px);
+        opacity: .9;
+    }
+}
+
+@keyframes circleTeal {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-15px);
+        opacity: .8;
+    }
+}
+
+/* Mountain effect */
+.mountains {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    overflow: hidden;
+}
+
+.mountain-svg {
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 200px;
+}
+
+.floating-speckles {
+    animation: floatSpeckles 20s ease-in-out infinite;
+}
+
+@keyframes floatSpeckles {
+    0%, 100% { 
+        transform: translateY(0); 
+    }
+    50% { 
+        transform: translateY(-10px); 
+    }
+}
+
+/* Bottom bar */
+.bottom-bar {
+    position: relative;
+    background: white;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.event-button {
+    background: #000;
+    color: #fff;
+    padding: 16px 36px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.event-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: #1a1a1a;
+}
+
+.event-button::after {
+    content: '→';
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.event-button:hover::after {
+    transform: translateX(3px);
+}
+
+/* Entrance animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+.mountains {
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+.bottom-bar {
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 5em;
+        margin-bottom: 50px;
+    }
+    
+    .circles {
+        transform: translateX(-50%) scale(0.8);
+    }
+    
+    .bottom-bar {
+        height: 100px;
+    }
+    
+    .event-button {
+        font-size: 1em;
+        padding: 14px 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 3.5em;
+        letter-spacing: -1px;
+    }
+    
+    .circles {
+        transform: translateX(-50%) scale(0.6);
+    }
+}
