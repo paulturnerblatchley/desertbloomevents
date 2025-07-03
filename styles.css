@@ -63,20 +63,20 @@ body {
 }
 
 .circle-orange {
-    background-color: #FF6B35;
+    background-color: #ED7000;
     left: 0;
     animation: circleOrange 4s ease-in-out infinite;
 }
 
 .circle-teal {
-    background-color: #4ECDC4;
+    background-color: #2AB8BC;
     right: 0;
     animation: circleTeal 4s ease-in-out infinite;
 }
 
 @keyframes circleOrange {
     0%, 100% {
-        transform: translateX(0);
+        transform: translateX(-.5px);
         opacity: 1;
     }
     50% {
@@ -87,7 +87,7 @@ body {
 
 @keyframes circleTeal {
     0%, 100% {
-        transform: translateX(0);
+        transform: translateX(.5px);
         opacity: 1;
     }
     50% {
@@ -99,10 +99,9 @@ body {
 /* Mountain effect */
 .mountains {
     position: absolute;
-    bottom: 0;
+    bottom: -300px;
     left: 0;
     right: 0;
-    height: 200px;
     overflow: hidden;
 }
 
@@ -129,7 +128,7 @@ body {
 /* Bottom bar */
 .bottom-bar {
     position: relative;
-    background: white;
+    background: transparent;
     height: 120px;
     display: flex;
     align-items: center;
@@ -138,8 +137,8 @@ body {
 }
 
 .event-button {
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: #000;
     padding: 16px 36px;
     text-decoration: none;
     font-size: 1.1em;
@@ -156,7 +155,7 @@ body {
 .event-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    background: #1a1a1a;
+    background: #B8446B;
 }
 
 .event-button::after {

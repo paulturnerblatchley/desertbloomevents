@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desert Bloom Events</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
 </head>
 <body>
     <div class="container">
@@ -17,57 +18,13 @@
         </div>
         
         <div class="mountains">
-            <!-- Multiple mountain layers for depth -->
-            <svg class="mountain-svg" viewBox="0 0 1200 200" preserveAspectRatio="none">
-                <!-- Back mountain layer -->
-                <path class="mountain-back" d="M0,200 L0,140 C100,120 150,100 250,90 C350,80 400,70 500,85 C600,100 650,60 750,50 C850,40 900,45 1000,35 C1100,25 1150,30 1200,20 L1200,200 Z" fill="rgba(255,255,255,0.3)"/>
-                
-                <!-- Middle mountain layer -->
-                <path class="mountain-middle" d="M0,200 L0,160 C50,150 100,130 200,120 C300,110 350,100 450,115 C550,130 600,90 700,80 C800,70 850,75 950,65 C1050,55 1100,60 1200,50 L1200,200 Z" fill="rgba(255,255,255,0.5)"/>
-                
-                <!-- Front mountain layer with texture -->
-                <defs>
-                    <pattern id="speckle" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <circle cx="5" cy="5" r="0.5" fill="white" opacity="0.8"/>
-                        <circle cx="15" cy="8" r="0.3" fill="white" opacity="0.6"/>
-                        <circle cx="25" cy="12" r="0.7" fill="white" opacity="0.9"/>
-                        <circle cx="35" cy="6" r="0.4" fill="white" opacity="0.7"/>
-                        <circle cx="8" cy="18" r="0.6" fill="white" opacity="0.8"/>
-                        <circle cx="20" cy="22" r="0.5" fill="white" opacity="0.9"/>
-                        <circle cx="30" cy="25" r="0.3" fill="white" opacity="0.6"/>
-                        <circle cx="12" cy="30" r="0.8" fill="white" opacity="0.9"/>
-                        <circle cx="28" cy="35" r="0.4" fill="white" opacity="0.7"/>
-                        <circle cx="38" cy="28" r="0.5" fill="white" opacity="0.8"/>
-                    </pattern>
-                    
-                    <mask id="mountain-mask">
-                        <rect width="100%" height="100%" fill="white"/>
-                        <rect width="100%" height="100%" fill="url(#speckle)"/>
-                    </mask>
-                </defs>
-                
-                <!-- Main mountain with speckled edge -->
-                <path class="mountain-front" d="M0,200 L0,180 C30,175 80,160 150,150 C220,140 270,125 350,130 C430,135 480,115 560,105 C640,95 690,90 770,85 C850,80 900,82 980,75 C1060,68 1110,70 1200,65 L1200,200 Z" fill="white" mask="url(#mountain-mask)"/>
-                
-                <!-- Additional speckles -->
-                <g class="floating-speckles">
-                    <circle cx="100" cy="165" r="1" fill="white" opacity="0.6"/>
-                    <circle cx="200" cy="145" r="0.8" fill="white" opacity="0.7"/>
-                    <circle cx="300" cy="135" r="1.2" fill="white" opacity="0.5"/>
-                    <circle cx="400" cy="125" r="0.6" fill="white" opacity="0.8"/>
-                    <circle cx="500" cy="115" r="0.9" fill="white" opacity="0.6"/>
-                    <circle cx="600" cy="105" r="1.1" fill="white" opacity="0.7"/>
-                    <circle cx="700" cy="95" r="0.7" fill="white" opacity="0.8"/>
-                    <circle cx="800" cy="88" r="1" fill="white" opacity="0.6"/>
-                    <circle cx="900" cy="82" r="0.8" fill="white" opacity="0.7"/>
-                    <circle cx="1000" cy="78" r="0.9" fill="white" opacity="0.8"/>
-                </g>
-            </svg>
+            <img class="mtns" src="images/mtns.png" />
+            
         </div>
     </div>
     
     <div class="bottom-bar">
-        <a href="/filmfest" class="event-button">
+        <a href="/filmfest/index.html" class="event-button">
             Film Festival
         </a>
     </div>
