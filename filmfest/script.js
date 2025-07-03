@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(typeWriter, 500);
 });
 
-// Parallax effect on scroll
+/* Parallax effect on scroll
 window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     const parallax = document.querySelector('.hero');
@@ -32,6 +32,21 @@ cards.forEach(card => {
             this.style.animation = '';
         }, 500);
     });
+}); */
+
+// Sticky button on scroll
+window.addEventListener('scroll', () => {
+    const button = document.querySelector('.event-button');
+    const buttonRect = button.getBoundingClientRect();
+    const buttonParent = button.parentElement;
+    const parentRect = buttonParent.getBoundingClientRect();
+    
+    // Check if the bottom bar has scrolled past the top of viewport
+    if (parentRect.top <= 0 && !button.classList.contains('sticky')) {
+        button.classList.add('sticky');
+    } else if (parentRect.top > 0 && button.classList.contains('sticky')) {
+        button.classList.remove('sticky');
+    }
 });
 
 // Add creepy cursor trail

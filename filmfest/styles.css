@@ -1,354 +1,435 @@
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Special+Elite&family=Creepster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background-color: #1a1a1a;
-            color: #333;
-            font-family: 'Courier Prime', monospace;
-            overflow-x: hidden;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background-color: #000;
-            color: #fff;
-            padding: 40px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 2px,
-                    rgba(255,0,0,0.03) 2px,
-                    rgba(255,0,0,0.03) 4px
-                );
-            pointer-events: none;
-            animation: scan 8s linear infinite;
-        }
-        
-        @keyframes scan {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(20px); }
-        }
-        
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .logo-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-        
-        .logo {
-            width: 150px;
-            height: 60px;
-            background: rgba(255,255,255,0.1);
-            border: 2px solid #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            text-align: center;
-            padding: 10px;
-        }
-        
-        .festival-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .festival-title h1 {
-            font-family: 'Creepster', cursive;
-            font-size: 4em;
-            color: #ff0000;
-            text-shadow: 
-                0 0 10px rgba(255,0,0,0.8),
-                0 0 20px rgba(255,0,0,0.6),
-                0 0 30px rgba(255,0,0,0.4);
-            margin-bottom: 10px;
-            animation: flicker 3s infinite;
-            letter-spacing: 3px;
-        }
-        
-        @keyframes flicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-        
-        .festival-title .tagline {
-            font-family: 'Special Elite', cursive;
-            font-size: 1.4em;
-            color: #ccc;
-            margin-bottom: 10px;
-        }
-        
-        .festival-title .date-location {
-            font-size: 1.2em;
-            color: #ff6666;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .festival-description {
-            max-width: 800px;
-            margin: 30px auto;
-            text-align: center;
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #ddd;
-            font-style: italic;
-        }
-        
-        .cta {
-            text-align: center;
-            margin: 40px 0;
-        }
-        
-        .cta p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            color: #ddd;
-        }
-        
-        /* Main Content */
-        .content {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* Screenplay Pages */
-        .screenplay-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .screenplay-page {
-            background: #f5f5dc;
-            padding: 40px 30px;
-            box-shadow: 
-                0 10px 30px rgba(0,0,0,0.5),
-                inset 0 0 0 1px rgba(0,0,0,0.1);
-            position: relative;
-            transform: rotate(-1deg);
-            transition: transform 0.3s ease;
-        }
-        
-        .screenplay-page:nth-child(even) {
-            transform: rotate(1deg);
-        }
-        
-        .screenplay-page:hover {
-            transform: rotate(0deg) scale(1.02);
-        }
-        
-        .screenplay-page::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: repeating-linear-gradient(
-                to right,
-                transparent,
-                transparent 5px,
-                #000 5px,
-                #000 10px
-            );
-            opacity: 0.2;
-        }
-        
-        .screenplay-page h2 {
-            font-family: 'Courier Prime', monospace;
-            font-size: 14px;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 20px;
-            text-decoration: underline;
-            text-underline-offset: 5px;
-        }
-        
-        .screenplay-page .scene-heading {
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        
-        .screenplay-page .action {
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-        
-        .screenplay-page .dialogue {
-            margin: 20px 40px;
-        }
-        
-        .screenplay-page .character {
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .prize-money {
-            font-weight: bold;
-            color: #8B0000;
-            font-size: 1.1em;
-        }
-        
-        /* Index Cards */
-        .index-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-        
-        .index-card {
-            background: linear-gradient(to bottom, #fff 0%, #fff 90%, #FF6B35 94%, #FF6B35 100%);
-            padding: 30px;
-            box-shadow: 
-                0 5px 15px rgba(0,0,0,0.3),
-                inset 0 0 0 1px rgba(0,0,0,0.1);
-            position: relative;
-            min-height: 250px;
-            transform: rotate(-2deg);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .index-card:nth-child(odd) {
-            transform: rotate(2deg);
-            background: linear-gradient(to bottom, #fff 0%, #fff 90%, #4ECDC4 94%, #4ECDC4 100%);
-        }
-        
-        .index-card:hover {
-            transform: rotate(0deg) translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-        }
-        
-        .index-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 10%;
-            right: 10%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                to bottom,
-                transparent,
-                transparent 24px,
-                #e0e0e0 24px,
-                #e0e0e0 25px
-            );
-            pointer-events: none;
-        }
-        
-        .index-card h3 {
-            font-family: 'Special Elite', cursive;
-            font-size: 18px;
-            margin-bottom: 15px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .index-card .content {
-            font-size: 14px;
-            line-height: 25px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .index-card .pin {
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
-            background: radial-gradient(circle, #ff0000 30%, #cc0000 100%);
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-        
-        /* Blood drip effect */
-        .blood-drip {
-            position: fixed;
-            top: -50px;
-            width: 20px;
-            height: 50px;
-            background: #8B0000;
-            border-radius: 0 0 50% 50%;
-            animation: drip 8s infinite;
-            opacity: 0.8;
-        }
-        
-        @keyframes drip {
-            0% { top: -50px; }
-            90% { top: 100vh; opacity: 0.8; }
-            100% { top: 100vh; opacity: 0; }
-        }
-        
-        /* Footer */
-        .footer {
-            background: #000;
-            color: #fff;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-        
-        .footer a {
-            color: #ff6666;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-        }
-        
-        .footer a:hover {
-            color: #ff0000;
-            text-shadow: 0 0 10px rgba(255,0,0,0.5);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .festival-title h1 {
-                font-size: 2.5em;
-            }
-            
-            .screenplay-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .screenplay-page {
-                transform: none !important;
-            }
-            
-            .index-cards {
-                grid-template-columns: 1fr;
-            }
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #333;
+    font-family: 'Courier Prime', monospace;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #000;
+    color: #fff;
+    padding: 40px 20px;
+    top:0;
+    width:100%;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255,0,0,0.03) 2px,
+            rgba(255,0,0,0.03) 4px
+        );
+    pointer-events: none;
+    animation: scan 8s linear infinite;
+}
+
+@keyframes scan {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(20px); }
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.logo {
+    width: 150px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+}
+
+.logo img {
+    max-width: 100%;
+}
+
+.logo.db {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 80px;
+    height: auto;
+    top: -10px;
+    position: relative;
+}
+
+.logo.db img {
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%,rgba(0,0,0,0) 90%);
+}
+
+.festival-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.festival-title h1 {
+    font-family: 'Creepster', cursive;
+    font-size: 4em;
+    color: #ff0000;
+    text-shadow: 
+        0 0 10px rgba(255,0,0,0.8),
+        0 0 20px rgba(255,0,0,0.6),
+        0 0 30px rgba(255,0,0,0.4);
+    margin-bottom: 10px;
+    animation: flicker 3s infinite;
+    letter-spacing: 3px;
+    min-height: 75px;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.festival-title .tagline {
+    font-family: 'Special Elite', cursive;
+    font-size: 1.4em;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.festival-title .date-location {
+    font-size: 1.2em;
+    color: #ff6666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.festival-description {
+    max-width: 800px;
+    margin: 30px auto;
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #ddd;
+    font-style: italic;
+}
+
+.cta {
+    text-align: center;
+    margin: 0;
+    background-color: #000;
+    position: relative;
+    z-index: 999;
+}
+
+.cta p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+/* Sticky button styles */
+.event-button.sticky {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateX(-50%) translateY(-100%);
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Optional: Add a background blur when button is sticky */
+.event-button.sticky {
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.event-button {
+    width: 100%;
+    background-color: #000;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Main Content */
+.content {
+    background-color: #1a1a1a;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.container {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Screenplay Pages */
+.screenplay-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.screenplay-page {
+    background: #f5f5dc;
+    padding: 40px 30px;
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.5),
+        inset 0 0 0 1px rgba(0,0,0,0.1);
+    position: relative;
+    transform: rotate(-1deg);
+    transition: transform 0.3s ease;
+}
+
+.screenplay-page:nth-child(even) {
+    transform: rotate(1deg);
+}
+
+.screenplay-page:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.screenplay-page::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: repeating-linear-gradient(
+        to right,
+        transparent,
+        transparent 5px,
+        #000 5px,
+        #000 10px
+    );
+    opacity: 0.2;
+}
+
+.screenplay-page h2 {
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.screenplay-page .scene-heading {
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.screenplay-page .action {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.screenplay-page .dialogue {
+    margin: 20px 40px;
+}
+
+.screenplay-page .character {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.prize-money {
+    font-weight: bold;
+    color: #8B0000;
+    font-size: 1.1em;
+}
+
+/* Index Cards */
+.index-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.index-cards a {
+    all: unset;
+}
+
+a .index-card {
+    min-height: 350px;
+}
+
+.index-cards a:hover .address {
+    color: rgb(0, 98, 255);
+    text-decoration: underline;
+} 
+
+.index-card {
+    background: linear-gradient(to bottom, #fff 0%, #fff 90%, #FF6B35 94%, #FF6B35 100%);
+    padding: 30px;
+    box-shadow: 
+        0 5px 15px rgba(0,0,0,0.3),
+        inset 0 0 0 1px rgba(0,0,0,0.1);
+    position: relative;
+    min-height: 250px;
+    transform: rotate(-2deg);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.index-card:nth-child(odd) {
+    transform: rotate(2deg);
+    background: linear-gradient(to bottom, #fff 0%, #fff 90%, #4ECDC4 94%, #4ECDC4 100%);
+}
+
+.index-card:hover {
+    transform: rotate(0deg) translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.index-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 24px,
+        #e0e0e0 24px,
+        #e0e0e0 25px
+    );
+    pointer-events: none;
+}
+
+.index-card h3 {
+    font-family: 'Special Elite', cursive;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.index-card .index-content {
+    font-family: "Kalam", cursive;
+    font-size: 16px;
+    line-height: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.index-card .index-content ul {
+    list-style-position: outside;
+    padding-left: 10px;
+}
+
+.index-card .pin {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #ff0000 30%, #cc0000 100%);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Blood drip effect */
+.blood-drip {
+    position: fixed;
+    top: -50px;
+    width: 20px;
+    height: 20px;
+    background: #8B0000;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(135deg);
+    animation: drip 8s infinite;
+    opacity: 0.8;
+    z-index: 1;
+}
+.blood-drip::after {
+    color: #fff;
+    width: 10px;
+    height: 10px;
+}
+
+@keyframes drip {
+    0% { top: -50px; }
+    90% { top: 100vh; opacity: 0.8; }
+    100% { top: 100vh; opacity: 0; }
+}
+
+/* Footer */
+.footer {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+.footer-icon {
+    width: 60px;
+    padding: 20px 5px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .logo-container {
+        margin-bottom : 50px;
+    }
+    .festival-title h1 {
+        font-size: 2.5em;
+    }
+    
+    .screenplay-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .screenplay-page {
+        transform: none !important;
+    }
+    
+    .index-cards {
+        grid-template-columns: 1fr;
+    }
+}
