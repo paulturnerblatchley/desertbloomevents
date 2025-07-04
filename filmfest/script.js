@@ -16,24 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(typeWriter, 500);
 });
 
-/* Parallax effect on scroll
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const parallax = document.querySelector('.hero');
-    parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
-});
-
-// Random flicker for index cards
-const cards = document.querySelectorAll('.index-card');
-cards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.animation = 'flicker 0.5s';
-        setTimeout(() => {
-            this.style.animation = '';
-        }, 500);
-    });
-}); */
-
 // Sticky button on scroll
 window.addEventListener('scroll', () => {
     const button = document.querySelector('.event-button');
@@ -97,6 +79,7 @@ function updateCountdown() {
         countdownEl.style.fontFamily = 'Creepster, cursive';
         countdownEl.style.fontSize = '18px';
         countdownEl.style.border = '2px solid #ff0000';
+        countdownEl.style.zIndex = '1000';
         countdownEl.textContent = `${days} DAYS UNTIL NIGHTMARE`;
         
         const existing = document.querySelector('.countdown-timer');
