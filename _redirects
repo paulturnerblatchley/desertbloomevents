@@ -1,0 +1,6 @@
+# Redirect filmfestival to filmfest
+/filmfestival              /filmfest              301
+/filmfestival/             /filmfest              301
+
+# Force redirect to remove trailing slashes
+/filmfest/                 /filmfest              301
