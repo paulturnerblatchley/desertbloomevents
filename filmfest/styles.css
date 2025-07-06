@@ -289,6 +289,9 @@ a .index-card {
     color: rgb(0, 98, 255);
     text-decoration: underline;
 } 
+a .index-card {
+background: linear-gradient(to bottom, #fff 0%, #fff 90%, #FF6B35 94%, #FF6B35 100%);
+}
 
 .index-card {
     background: linear-gradient(to bottom, #fff 0%, #fff 90%, #FF6B35 94%, #FF6B35 100%);
