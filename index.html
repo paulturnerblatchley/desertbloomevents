@@ -6,29 +6,459 @@
     <title>Desert Bloom Events</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-    <div class="container">
-        <div class="logo-section">
-            <h1 class="logo-text">DESERT BLOOM</h1>
-            <div class="circles">
-                <div class="circle circle-orange"></div>
-                <div class="circle circle-teal"></div>
+
+    <!-- ============================================ -->
+    <!-- HERO (preserved from year one)              -->
+    <!-- ============================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="logo-section">
+                <h1 class="logo-text">DESERT BLOOM</h1>
+                <div class="circles">
+                    <div class="circle circle-orange"></div>
+                    <div class="circle circle-teal"></div>
+                </div>
+            </div>
+
+            <div class="mountains">
+                <img class="mtns" src="images/mtns.png" alt="" />
             </div>
         </div>
-        
-        <div class="mountains">
-            <img class="mtns" src="images/mtns.png" />
-            
+
+        <div class="bottom-bar">
+            <a href="/filmfest/index.html" class="hero-btn hero-btn-primary">
+                2nd Annual Film Festival
+            </a>
+            <a href="#recap" class="hero-btn hero-btn-ghost">
+                Past Events
+            </a>
         </div>
-    </div>
-    
-    <div class="bottom-bar">
-        <a href="/filmfest/index.html" class="event-button">
-            Film Festival
-        </a>
-    </div>
-    
+    </section>
+
+    <!-- ============================================ -->
+    <!-- YEAR ONE RECAP                              -->
+    <!-- ============================================ -->
+    <section class="recap" id="recap">
+
+        <div class="recap-marker">
+            <span class="marker-label">Film Festival · Year One</span>
+        </div>
+
+        <div class="recap-feature">
+            <div class="event-poster reveal">
+                <img src="images/2025/event-poster.jpg" alt="Desert Bloom Film Festival 2025 poster"
+                     onerror="this.style.display='none'; this.parentNode.classList.add('poster-empty');">
+                <span class="poster-fallback">Festival Poster<br><span class="poster-fallback-sub">Nightmare Scenario</span></span>
+            </div>
+
+            <header class="recap-intro reveal">
+                <span class="eyebrow">2025</span>
+                <h2 class="theme-title">
+                    <span>Nightmare</span>
+                    <span class="italic">Scenario</span>
+                </h2>
+                <div class="recap-description">
+                    <p>
+                        How do you react when everything goes wrong? The inaugural Desert Bloom Film Festival
+                        invited audiences into the dark art of chaos &mdash; nightmares lurking beneath the
+                        surface and the fragile threads that hold our carefully constructed worlds together.
+                    </p>
+                </div>
+            </header>
+        </div>
+
+        <div class="stats reveal">
+            <div class="stat">
+                <span class="stat-num">10</span>
+                <span class="stat-label">Films screened</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">100</span>
+                <span class="stat-label">Attendees</span>
+            </div>
+            <div class="stat">
+                <span class="stat-num">3</span>
+                <span class="stat-label">Awards given</span>
+            </div>
+            <div class="stat stat-text">
+                <span class="stat-place">LOOK <br><span class="italic">Cinemas</span></span>
+                <span class="stat-label">Redlands, CA</span>
+            </div>
+        </div>
+
+        <!-- AWARDS -->
+        <div class="awards">
+            <div class="section-head reveal">
+                <span class="eyebrow">Honors</span>
+                <h3 class="section-title">The <span class="italic">winners</span></h3>
+            </div>
+
+            <div class="awards-grid">
+                <article class="award reveal" data-accent="pink">
+                    <div class="poster">
+                        <img src="images/2025/posters/fluff.jpg" alt="Fluff film poster"
+                             onerror="this.style.display='none'; this.parentNode.classList.add('poster-empty');">
+                        <span class="poster-fallback">Fluff</span>
+                    </div>
+                    <div class="award-meta">
+                        <span class="award-prize">Best Film</span>
+                        <h4 class="film-title">Fluff</h4>
+                        <p class="film-director">Directed by Andrew Hakim</p>
+                    </div>
+                </article>
+
+                <article class="award reveal" data-accent="orange">
+                    <div class="poster">
+                        <img src="images/2025/posters/deadlands.jpg" alt="Deadlands film poster"
+                             onerror="this.style.display='none'; this.parentNode.classList.add('poster-empty');">
+                        <span class="poster-fallback">Deadlands</span>
+                    </div>
+                    <div class="award-meta">
+                        <span class="award-prize">Audience Favorite</span>
+                        <h4 class="film-title">Deadlands</h4>
+                        <p class="film-director">Directed by Maximilian Perry</p>
+                    </div>
+                </article>
+
+                <article class="award reveal" data-accent="teal">
+                    <div class="poster">
+                        <img src="images/2025/posters/party-time.jpg" alt="Party Time film poster"
+                             onerror="this.style.display='none'; this.parentNode.classList.add('poster-empty');">
+                        <span class="poster-fallback">Party Time</span>
+                    </div>
+                    <div class="award-meta">
+                        <span class="award-prize">Most Creative Concept</span>
+                        <h4 class="film-title">Party Time</h4>
+                        <p class="film-director">Directed by Aaron David Gomez</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- SELECTIONS -->
+        <div class="selections">
+            <div class="section-head reveal">
+                <span class="eyebrow">Programme</span>
+                <h3 class="section-title">Official <span class="italic">selections</span></h3>
+            </div>
+
+            <ol class="selections-list">
+                <li class="selection reveal">
+                    <div class="selection-poster">
+                        <img src="images/2025/posters/intruder.jpg" alt="Intruder poster"
+                             onerror="this.style.display='none'; this.parentNode.classList.add('poster-empty');">
+                        <span class="poster-fallback">Intruder</span>
+                    </div>
+                    <span class="selection-title">Intruder</span>
+                    <span class="selection-director">Daniel Sailors</span>
+                </li>
+                <li class="selection reveal">
+                    <div class="selection-poster">
+                        <img src="images/2025/posters/fragile-storm.jpg" alt="Fragile Storm poster"
+                             onerror="this.style.display='none'; this.parentNode.classList.add('poster-empty');">
+                        <span class="poster-fallback">Fragile Storm</span>
+                    </div>
+                    <span class="selection-title">Fragile Storm</span>
+                    <span class="selection-director">Dawn Fields</span>
+                </li>
+                <li class="selection reveal">
+                    <div class="selection-poster">
+                        <img src="images/2025/posters/harpy.jpg" alt="Harpy poster"
+                             onerror="this.style.display='none'; this.parentNode.classList.add('poster-empty');">
+                        <span class="poster-fallback">Harpy</span>
+                    </div>
+                    <span class="selection-title">Harpy</span>
+                    <span class="selection-director">Brendon J. Woods</span>
+                </li>
+                <li class="selection reveal">
+                    <div class="selection-poster">
+                        <img src="images/2025/posters/antisocial.jpg" alt="antisocial poster"
+                             onerror="this.style.display='none'; this.parentNode.classList.add('poster-empty');">
+                        <span class="poster-fallback">antisocial</span>
+                    </div>
+                    <span class="selection-title">antisocial</span>
+                    <span class="selection-director">Tobias Rothacker</span>
+                </li>
+                <li class="selection reveal">
+                    <div class="selection-poster">
+                        <img src="images/2025/posters/pumpkin.jpg" alt="Pumpkin poster"
+                             onerror="this.style.display='none'; this.parentNode.classList.add('poster-empty');">
+                        <span class="poster-fallback">Pumpkin</span>
+                    </div>
+                    <span class="selection-title">Pumpkin</span>
+                    <span class="selection-director">Naro Guardado</span>
+                </li>
+                <li class="selection reveal">
+                    <div class="selection-poster">
+                        <img src="images/2025/posters/escapee.jpg" alt="Escapee poster"
+                             onerror="this.style.display='none'; this.parentNode.classList.add('poster-empty');">
+                        <span class="poster-fallback">Escapee</span>
+                    </div>
+                    <span class="selection-title">Escapee</span>
+                    <span class="selection-director">Jase D Stafford</span>
+                </li>
+            </ol>
+
+            <div class="exhibition reveal">
+                <span class="exhibition-label">In Exhibition</span>
+                <div class="exhibition-film">
+                    <div class="selection-poster">
+                        <img src="images/2025/posters/down-to-the-last-bite.jpg" alt="Down to the Last Bite poster"
+                             onerror="this.style.display='none'; this.parentNode.classList.add('poster-empty');">
+                        <span class="poster-fallback">Down to the Last Bite</span>
+                    </div>
+                    <span class="selection-title">Down to the Last Bite</span>
+                    <span class="selection-director">Dominic Paramo</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- GALLERY -->
+        <div class="gallery">
+            <div class="section-head reveal">
+                <span class="eyebrow">Moments</span>
+                <h3 class="section-title">From the <span class="italic">festival</span></h3>
+            </div>
+
+            <div class="gallery-grid">
+                <figure class="gallery-item gallery-item-a reveal">
+                    <img src="images/2025/photo-01.jpg" alt=""
+                         onerror="this.style.display='none'; this.parentNode.classList.add('photo-empty');">
+                </figure>
+                <figure class="gallery-item gallery-item-b reveal">
+                    <img src="images/2025/photo-02.jpg" alt=""
+                         onerror="this.style.display='none'; this.parentNode.classList.add('photo-empty');">
+                </figure>
+                <figure class="gallery-item gallery-item-c reveal">
+                    <img src="images/2025/photo-03.jpg" alt=""
+                         onerror="this.style.display='none'; this.parentNode.classList.add('photo-empty');">
+                </figure>
+                <figure class="gallery-item gallery-item-d reveal">
+                    <img src="images/2025/photo-04.jpg" alt=""
+                         onerror="this.style.display='none'; this.parentNode.classList.add('photo-empty');">
+                </figure>
+                <figure class="gallery-item gallery-item-e reveal">
+                    <img src="images/2025/photo-05.jpg" alt=""
+                         onerror="this.style.display='none'; this.parentNode.classList.add('photo-empty');">
+                </figure>
+                <figure class="gallery-item gallery-item-f reveal">
+                    <img src="images/2025/photo-06.jpg" alt=""
+                         onerror="this.style.display='none'; this.parentNode.classList.add('photo-empty');">
+                </figure>
+                <figure class="gallery-item gallery-item-g reveal">
+                    <img src="images/2025/photo-07.jpg" alt=""
+                         onerror="this.style.display='none'; this.parentNode.classList.add('photo-empty');">
+                </figure>
+                <figure class="gallery-item gallery-item-h reveal">
+                    <img src="images/2025/photo-08.jpg" alt=""
+                         onerror="this.style.display='none'; this.parentNode.classList.add('photo-empty');">
+                </figure>
+                <figure class="gallery-item gallery-item-i reveal">
+                    <img src="images/2025/photo-09.jpg" alt=""
+                         onerror="this.style.display='none'; this.parentNode.classList.add('photo-empty');">
+                </figure>
+                <figure class="gallery-item gallery-item-j reveal">
+                    <img src="images/2025/photo-10.jpg" alt=""
+                         onerror="this.style.display='none'; this.parentNode.classList.add('photo-empty');">
+                </figure>
+                <figure class="gallery-item gallery-item-k reveal">
+                    <img src="images/2025/photo-11.jpg" alt=""
+                         onerror="this.style.display='none'; this.parentNode.classList.add('photo-empty');">
+                </figure>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SKELEFUZZ HISTORY                           -->
+    <!-- ============================================ -->
+    <section class="skelefuzz" id="skelefuzz">
+
+        <header class="skelefuzz-intro reveal">
+            <span class="eyebrow">A History</span>
+            <h2 class="theme-title theme-title-inline">
+                <span>Skele</span><span class="italic">fuzz</span>
+            </h2>
+            <p class="recap-description">
+                Twelve years. Twenty-five players. A through-line that runs from a Halloween house party in 2013 to the inaugural film festival in 2025.
+            </p>
+        </header>
+
+        <ol class="years">
+            <li class="year reveal">
+                <div class="year-image">
+                    <img src="images/skelefuzz/2024.jpg" alt="Skelefuzz XII, 2024"
+                         onerror=\"this.style.display='none'; this.parentNode.classList.add('photo-empty');\">
+                </div>
+                <div class="year-meta">
+                    <span class="year-num">2024</span>
+                    <h3 class="year-title"><span class="italic">XII</span></h3>
+                </div>
+            </li>
+            <li class="year reveal">
+                <div class="year-image">
+                    <img src="images/skelefuzz/2023.jpg" alt="Skelefuzz XI, 2023"
+                         onerror=\"this.style.display='none'; this.parentNode.classList.add('photo-empty');\">
+                </div>
+                <div class="year-meta">
+                    <span class="year-num">2023</span>
+                    <h3 class="year-title"><span class="italic">XI</span></h3>
+                </div>
+            </li>
+            <li class="year reveal">
+                <div class="year-image">
+                    <img src="images/skelefuzz/2022.jpg" alt="Skelefuzz X, 2022"
+                         onerror=\"this.style.display='none'; this.parentNode.classList.add('photo-empty');\">
+                </div>
+                <div class="year-meta">
+                    <span class="year-num">2022</span>
+                    <h3 class="year-title"> <span class="italic">X</span></h3>
+                </div>
+            </li>
+            <li class="year reveal">
+                <div class="year-image">
+                    <img src="images/skelefuzz/2021.jpg" alt="Skelefuzz IX, 2021"
+                         onerror=\"this.style.display='none'; this.parentNode.classList.add('photo-empty');\">
+                </div>
+                <div class="year-meta">
+                    <span class="year-num">2021</span>
+                    <h3 class="year-title"> <span class="italic">IX</span></h3>
+                </div>
+            </li>
+            <li class="year reveal">
+                <div class="year-image">
+                    <img src="images/skelefuzz/2020.jpg" alt="Skelefuzz VIII, 2020"
+                         onerror=\"this.style.display='none'; this.parentNode.classList.add('photo-empty');\">
+                </div>
+                <div class="year-meta">
+                    <span class="year-num">2020</span>
+                    <h3 class="year-title"> <span class="italic">VIII</span></h3>
+                </div>
+            </li>
+            <li class="year reveal">
+                <div class="year-image">
+                    <img src="images/skelefuzz/2019.jpg" alt="Skelefuzz VII, 2019"
+                         onerror=\"this.style.display='none'; this.parentNode.classList.add('photo-empty');\">
+                </div>
+                <div class="year-meta">
+                    <span class="year-num">2019</span>
+                    <h3 class="year-title"> <span class="italic">VII</span></h3>
+                </div>
+            </li>
+            <li class="year reveal">
+                <div class="year-image">
+                    <img src="images/skelefuzz/2018.jpg" alt="Skelefuzz VI, 2018"
+                         onerror=\"this.style.display='none'; this.parentNode.classList.add('photo-empty');\">
+                </div>
+                <div class="year-meta">
+                    <span class="year-num">2018</span>
+                    <h3 class="year-title"> <span class="italic">VI</span></h3>
+                </div>
+            </li>
+            <li class="year reveal">
+                <div class="year-image">
+                    <img src="images/skelefuzz/2017.jpg" alt="Skelefuzz V, 2017"
+                         onerror=\"this.style.display='none'; this.parentNode.classList.add('photo-empty');\">
+                </div>
+                <div class="year-meta">
+                    <span class="year-num">2017</span>
+                    <h3 class="year-title"> <span class="italic">V</span></h3>
+                </div>
+            </li>
+            <li class="year reveal">
+                <div class="year-image">
+                    <img src="images/skelefuzz/2016.jpg" alt="Skelefuzz IV, 2016"
+                         onerror=\"this.style.display='none'; this.parentNode.classList.add('photo-empty');\">
+                </div>
+                <div class="year-meta">
+                    <span class="year-num">2016</span>
+                    <h3 class="year-title"> <span class="italic">IV</span></h3>
+                </div>
+            </li>
+            <li class="year reveal">
+                <div class="year-image">
+                    <img src="images/skelefuzz/2015.jpg" alt="Skelefuzz III, 2015"
+                         onerror=\"this.style.display='none'; this.parentNode.classList.add('photo-empty');\">
+                </div>
+                <div class="year-meta">
+                    <span class="year-num">2015</span>
+                    <h3 class="year-title"> <span class="italic">III</span></h3>
+                </div>
+            </li>
+            <li class="year reveal">
+                <div class="year-image">
+                    <img src="images/skelefuzz/2014.jpg" alt="Skelefuzz II, 2014"
+                         onerror=\"this.style.display='none'; this.parentNode.classList.add('photo-empty');\">
+                </div>
+                <div class="year-meta">
+                    <span class="year-num">2014</span>
+                    <h3 class="year-title"> <span class="italic">II</span></h3>
+                </div>
+            </li>
+            <li class="year year-origin reveal">
+                <div class="year-image">
+                    <img src="images/skelefuzz/2013.jpg" alt="Skelefuzz I, 2013"
+                         onerror=\"this.style.display='none'; this.parentNode.classList.add('photo-empty');\">
+                </div>
+                <div class="year-meta">
+                    <span class="year-num">2013</span>
+                    <h3 class="year-title"> <span class="italic">I</span></h3>
+                    <span class="year-tag">The Night That Started It All</span>
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                       -->
+    <!-- ============================================ -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-headline reveal">
+                <span class="eyebrow">Submissions Open · Year Two</span>
+                <h2 class="footer-title"><span class="italic">Curse!</span></h2>
+                <p class="footer-pitch">
+                    The 2nd Annual Desert Bloom Film Festival is now accepting submissions.
+                    Bring us your hexes, your hauntings, the inheritance you can't shake.
+                </p>
+                <a href="/filmfest/index.html" class="footer-cta">
+                    Submit a Film
+                </a>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-block">
+                    <span class="footer-label">Email</span>
+                    <a href="mailto:desertbloomfilmfest@gmail.com" class="footer-link">
+                        desertbloomfilmfest@gmail.com
+                    </a>
+                </div>
+                <div class="footer-block">
+                    <span class="footer-label">Instagram</span>
+                    <a href="https://instagram.com/desertbloomfilmfest" target="_blank" rel="noopener" class="footer-link">
+                        @desertbloomfilmfest
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-circles" aria-hidden="true">
+                    <div class="footer-circle footer-circle-orange"></div>
+                    <div class="footer-circle footer-circle-teal"></div>
+                </div>
+                <div class="footer-bottom-meta">
+                    <span>Desert Bloom</span>
+                    <span>&copy; 2026</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
