@@ -854,7 +854,7 @@ Color: var(--paper);
     height: .75em; 
     overflow: hidden;  
     position: relative; 
-    top: 2px;  
+    top: 4px;  
     padding-right: 6px 
 }
 
@@ -870,15 +870,15 @@ Color: var(--paper);
 
 
 @keyframes rotate {
-    0%, 5% { transform: translateY(-0.01em); }
-    6%, 17% { transform: translateY(-.75em); }
-    18%, 29% { transform: translateY(-1.5em); }
-    30%, 41% { transform: translateY(-2.25em); } 
-    42%, 53% { transform: translateY(-3em); }
-    54%, 65% { transform: translateY(-3.75em); }
-    66%, 77% { transform: translateY(-4.5em); }
-    78%, 89% { transform: translateY(-5.25em); }
-    90%, 100% { transform: translateY(-6.01em); }
+    0%, 9% { transform: translateY(-0.01em); }
+    10%, 20% { transform: translateY(-.76em); }
+    21%, 32% { transform: translateY(-1.51em); }
+    33%, 44% { transform: translateY(-2.26em); } 
+    45%, 56% { transform: translateY(-3.01em); }
+    57%, 69% { transform: translateY(-3.76em); }
+    70%, 82% { transform: translateY(-4.51em); }
+    83%, 98% { transform: translateY(-5.26em); }
+    99%, 100% { transform: translateY(-6.01em); }
 }
 
 .closing-ctas {
