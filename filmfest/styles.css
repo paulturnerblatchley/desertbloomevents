@@ -854,7 +854,7 @@ Color: var(--paper);
     height: .75em; 
     overflow: hidden;  
     position: relative; 
-    top: 3px;  
+    top: 2px;  
     padding-right: 6px 
 }
 
