@@ -1093,6 +1093,7 @@ img {
         font-size: 5em;
         letter-spacing: -1px;
     }
+    .bottom-bar {padding:0}
 
     .circles {
         transform: translateX(-50%) scale(0.6);
