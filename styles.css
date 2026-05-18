@@ -1101,6 +1101,7 @@ img {
     }
     .bottom-bar {padding:0}
     .skelefuzz {padding: 6rem 0 5rem;}
+    .year-title {font-size: 12rem;}
 
     .circles {
         transform: translateX(-50%) scale(0.6);
