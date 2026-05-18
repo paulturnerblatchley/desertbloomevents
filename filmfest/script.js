@@ -1,94 +1,100 @@
-// Add typewriter effect to title on load
-document.addEventListener('DOMContentLoaded', function() {
-    const title = document.querySelector('.festival-title h1');
-    const text = title.textContent;
-    title.textContent = '';
-    
-    let i = 0;
-    function typeWriter() {
-        if (i < text.length) {
-            title.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
+/* ============================================================
+   CURSE — Desert Bloom Film Festival, Year Two
+   Minimal scripting. No gimmicks. Just reveals and a few
+   small interactive moments where they earn their keep.
+   ============================================================ */
+
+// ============================================
+// SCROLL REVEALS
+// ============================================
+
+// Reveal elements as they enter the viewport with a light cascade
+// inside grouped lists (awards, rules, dates).
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const el = entry.target;
+        const parent = el.parentElement;
+
+        // Stagger items inside known lists
+        if (parent && (
+            parent.classList.contains('awards-list') ||
+            parent.classList.contains('rules-list') ||
+            parent.classList.contains('dates-list')
+        )) {
+            const siblings = Array.from(parent.children).filter(s => s.classList.contains('reveal'));
+            const index = siblings.indexOf(el);
+            el.style.transitionDelay = `${Math.min(index * 90, 700)}ms`;
         }
-    }
-    
-    setTimeout(typeWriter, 500);
+
+        el.classList.add('in-view');
+        revealObserver.unobserve(el);
+    });
+}, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -8% 0px'
 });
 
-// Sticky button on scroll
-window.addEventListener('scroll', () => {
-    const button = document.querySelector('.event-button');
-    const buttonRect = button.getBoundingClientRect();
-    const buttonParent = button.parentElement;
-    const parentRect = buttonParent.getBoundingClientRect();
-    
-    // Check if the bottom bar has scrolled past the top of viewport
-    if (parentRect.top <= 0 && !button.classList.contains('sticky')) {
-        button.classList.add('sticky');
-    } else if (parentRect.top > 0 && button.classList.contains('sticky')) {
-        button.classList.remove('sticky');
-    }
+document.querySelectorAll('.reveal').forEach((el) => {
+    revealObserver.observe(el);
 });
 
-// Add creepy cursor trail
-document.addEventListener('mousemove', function(e) {
-    if (Math.random() > 0.98) {
-        const trail = document.createElement('div');
-        trail.style.position = 'fixed';
-        trail.style.left = e.clientX + 'px';
-        trail.style.top = e.clientY + 'px';
-        trail.style.width = '5px';
-        trail.style.height = '5px';
-        trail.style.background = '#ff0000';
-        trail.style.borderRadius = '50%';
-        trail.style.pointerEvents = 'none';
-        trail.style.opacity = '0.6';
-        document.body.appendChild(trail);
-        
-        setTimeout(() => {
-            trail.style.transition = 'all 1s ease-out';
-            trail.style.transform = 'translateY(20px)';
-            trail.style.opacity = '0';
-        }, 10);
-        
-        setTimeout(() => {
-            trail.remove();
-        }, 1000);
-    }
-});
 
-// Countdown timer
-const eventDate = new Date('October 30, 2025 00:00:00').getTime();
+// ============================================
+// CURSE TITLE — subtle drift on cursor proximity
+// ============================================
+// Very restrained — each letter shifts a degree or two when the
+// cursor passes nearby. Reads as "alive" without feeling animated.
+const curseTitle = document.querySelector('.curse-title');
+if (curseTitle && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const letters = curseTitle.querySelectorAll('.curse-letter');
 
-function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = eventDate - now;
-    
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    
-    if (distance > 0) {
-        const countdownEl = document.createElement('div');
-        countdownEl.style.position = 'fixed';
-        countdownEl.style.bottom = '20px';
-        countdownEl.style.right = '20px';
-        countdownEl.style.background = 'rgba(0,0,0,0.8)';
-        countdownEl.style.color = '#ff0000';
-        countdownEl.style.padding = '10px';
-        countdownEl.style.borderRadius = '5px';
-        countdownEl.style.fontFamily = 'Creepster, cursive';
-        countdownEl.style.fontSize = '18px';
-        countdownEl.style.border = '2px solid #ff0000';
-        countdownEl.style.zIndex = '1000';
-        countdownEl.textContent = `${days} DAYS UNTIL NIGHTMARE`;
-        
-        const existing = document.querySelector('.countdown-timer');
-        if (existing) existing.remove();
-        
-        countdownEl.className = 'countdown-timer';
-        document.body.appendChild(countdownEl);
-    }
+    // Cache each letter's baseline transform so we can layer on top
+    const baselines = Array.from(letters).map((l) => l.style.transform);
+
+    curseTitle.addEventListener('mousemove', (e) => {
+        const rect = curseTitle.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        letters.forEach((letter, i) => {
+            const letterX = (i + 0.5) / letters.length;
+            const distance = Math.abs(letterX - x);
+            const influence = Math.max(0, 1 - distance * 2.5);
+            const lift = -y * 8 * influence;
+            const rot = (x - letterX) * 6 * influence;
+
+            letter.style.transform = `${baselines[i]} translateY(${lift}px) rotate(${rot}deg)`;
+        });
+    });
+
+    curseTitle.addEventListener('mouseleave', () => {
+        letters.forEach((letter, i) => {
+            letter.style.transform = baselines[i];
+        });
+    });
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000 * 60 * 60); // Update every hour
+
+// ============================================
+// SMOOTH SCROLL FOR ANCHOR LINKS
+// ============================================
+// Native CSS scroll-behavior covers most of this, but we add a tiny
+// offset so anchors land below the top strip rather than under it.
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        if (targetId === '#') return;
+
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        e.preventDefault();
+        const topStrip = document.querySelector('.top-strip');
+        const offset = topStrip ? topStrip.offsetHeight + 20 : 80;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+        window.scrollTo({ top, behavior: 'smooth' });
+    });
+});
