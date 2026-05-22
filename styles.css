@@ -1065,6 +1065,9 @@ img {
 }
 
 @media (max-width: 600px) {
+     .mountains {
+        bottom: -150px;
+    }
     .gallery-item-a,
     .gallery-item-b,
     .gallery-item-c,
@@ -1118,6 +1121,10 @@ img {
     .logo-text {
         font-size: 5em;
         letter-spacing: -1px;
+    }
+
+     .mountains {
+        bottom: -100px;
     }
 
     .circles {
