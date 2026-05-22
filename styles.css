@@ -962,7 +962,7 @@ img {
 
 @media (max-width: 900px) {
     .mountains {
-        bottom: 0;
+        bottom: -100px;
     }
     .recap,
     .skelefuzz { padding: 6rem 5vw 5rem; }
