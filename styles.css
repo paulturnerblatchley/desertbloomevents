@@ -960,6 +960,12 @@ img {
     .gallery-item-k { grid-column: span 6; aspect-ratio: 3 / 2; }
 }
 
+@media (min-width: 901px) {
+    .recap-feature .theme-title {
+        font-size: clamp(3rem, 9vw, 11rem);
+    }
+}
+
 @media (max-width: 900px) {
     .mountains {
         bottom: -100px;
