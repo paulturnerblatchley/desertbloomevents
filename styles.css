@@ -961,6 +961,9 @@ img {
 }
 
 @media (max-width: 900px) {
+    .mountains {
+        bottom: 0;
+    }
     .recap,
     .skelefuzz { padding: 6rem 5vw 5rem; }
 
