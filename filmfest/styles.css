@@ -651,6 +651,9 @@ margin-left: -170px;
 background: var(--teal-darker);
 Color: var(--paper);
 }
+#rules .paper-surface {
+    background: none;
+}
 .rules-list {
     list-style: none;
     counter-reset: rule;
