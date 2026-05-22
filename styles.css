@@ -1068,6 +1068,9 @@ img {
      .mountains {
         bottom: -150px;
     }
+    .hero {
+        min-height: 650px;
+    }
     .gallery-item-a,
     .gallery-item-b,
     .gallery-item-c,
@@ -1121,10 +1124,6 @@ img {
     .logo-text {
         font-size: 5em;
         letter-spacing: -1px;
-    }
-
-     .mountains {
-        bottom: -100px;
     }
 
     .circles {
