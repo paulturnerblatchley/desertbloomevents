@@ -116,7 +116,7 @@ img {
 
 .mountains {
     position: absolute;
-    bottom: clamp(-360px, -35%, -80px);
+    bottom: clamp(-360px, -45%, -120px);
     left: 0;
     right: 0;
     overflow-x: clip;
@@ -1060,7 +1060,7 @@ img {
     }
 
     .mountains {
-        bottom: -100px;
+        bottom: -200px;
     }
 }
 
