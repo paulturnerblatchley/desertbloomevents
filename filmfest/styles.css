@@ -179,7 +179,7 @@ img {
 /* THE CURSE TITLE — the centerpiece */
 .curse-title {
     font-family: var(--slab);
-    font-size: clamp(6rem, 18vw, 12rem);
+    font-size: clamp(6rem, 13vw, 12rem);
     line-height: 0.88;
     letter-spacing: -0.015em;
     color: var(--mustard);
@@ -227,11 +227,16 @@ img {
     color: rgba(232, 220, 192, 0.85);
     margin-bottom: 3rem;
     line-height: 1.8;
+    max-width: 615px;
 }
 
 .meta-sep {
     margin: 0 0.7rem;
     color: var(--mustard);
+}
+
+.meta-city {
+text-wrap: nowrap;
 }
 
 .hero-ctas {
@@ -253,7 +258,7 @@ img {
 
 .hero-skull img {
     width: 100%;
-    Min-width:500px;
+    Min-width:600px;
     height: 100%;
     object-fit: contain;
     filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.7));
@@ -1007,14 +1012,15 @@ Color: var(--paper);
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-.spiral-bg {
-background: repeating-radial-gradient( circle at 50% 50%, transparent 0, transparent 38px, rgba(149, 79, 83, 0.22) 38px, rgba(149, 79, 83, 0.22) 41px, transparent 41px, transparent 78px, rgba(200, 157, 38, 0.16) 78px, rgba(200, 157, 38, 0.16) 81px );}
-.curse-title { justify-content:center}
-.hero-text {text-align:center}
-.hero-ctas { justify-content:center}
-.hero {padding:0 0 3rem 0}
-.hero-skull img {margin:0}
-
+    .hero-meta {
+        max-width: none;
+    }
+    .spiral-bg {background: repeating-radial-gradient( circle at 50% 50%, transparent 0, transparent 38px, rgba(149, 79, 83, 0.22) 38px, rgba(149, 79, 83, 0.22) 41px, transparent 41px, transparent 78px, rgba(200, 157, 38, 0.16) 78px, rgba(200, 157, 38, 0.16) 81px );}
+    .curse-title { justify-content:center;font-size: 18vw;}
+    .hero-text {text-align:center}
+    .hero-ctas { justify-content:center}
+    .hero {padding:0 0 3rem 0}
+    .hero-skull img {margin:0;min-width:500px;}
 
     .hero-skull {
         order: -1;
@@ -1044,6 +1050,11 @@ background: repeating-radial-gradient( circle at 50% 50%, transparent 0, transpa
     .hero {
         padding: 0 5vw 5rem;
     }
+    .hero-eyebrow {
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+        text-wrap: nowrap;
+        }
 
     .hero-tagline {
         margin-bottom: 2rem;
@@ -1215,9 +1226,10 @@ background: repeating-radial-gradient( circle at 50% 50%, transparent 0, transpa
   .hero {
     padding: 1rem 5vw 5rem;
   }
+  
 
     .hero-eyebrow {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
         letter-spacing: 0.18em;
     }
 

@@ -532,7 +532,7 @@ img {
 .film-director {
     font-family: var(--serif);
     font-style: italic;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     color: var(--muted);
 }
 
@@ -546,7 +546,7 @@ img {
 
 .selection {
     display: grid;
-    grid-template-columns: 80px 1fr auto;
+    grid-template-columns: 150px 1fr auto;
     align-items: center;
     gap: 5rem;
     padding: 1.5rem 0;
@@ -555,7 +555,7 @@ img {
 
 .selection-poster {
     position: relative;
-    width: 120px;
+    width: 150px;
     aspect-ratio: 2 / 3;
     background: var(--placeholder);
     overflow: hidden;
@@ -601,7 +601,7 @@ img {
 .selection-director {
     font-family: var(--serif);
     font-style: italic;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     color: var(--muted);
     text-align: right;
 }
@@ -624,7 +624,7 @@ img {
 
 .exhibition-film {
     display: grid;
-    grid-template-columns: 120px 1fr auto;
+    grid-template-columns: 150px 1fr auto;
     align-items: center;
     gap: 2rem;
 }
@@ -763,7 +763,7 @@ img {
 }
 
 .year-title {
-    font-size: 20rem;
+    font-size: clamp(12rem, 25vw, 20rem);
     font-weight: 800;
     letter-spacing: 0;
     line-height: 0.9;
@@ -1014,21 +1014,21 @@ img {
 
     .selection,
     .exhibition-film {
-        grid-template-columns: 70px 1fr;
+        grid-template-columns: 150px 1fr; 
         gap: 1.25rem;
         padding: 1.25rem 0;
     }
 
     .selection-poster,
     .exhibition-film .selection-poster {
-        width: 70px;
+        width: 150px;                      
     }
 
     .selection-director {
         grid-column: 2;
         text-align: left;
-        font-size: 1rem;
-        margin-top: -60px;
+        font-size: 1.5rem;                 
+        margin-top: -150px;               
     }
 
     .exhibition-film .selection-director {
@@ -1107,14 +1107,17 @@ img {
 
     .selection,
     .exhibition-film {
-        grid-template-columns: 60px 1fr;
+        grid-template-columns: 120px 1fr;
         gap: 1rem;
         padding: 1.25rem 0;
     }
 
     .selection-poster,
     .exhibition-film .selection-poster {
-        width: 60px;
+        width: 120px;
+    }
+    .selection-director {                 
+        margin-top: -120px;               
     }
 
     .footer-bottom {
