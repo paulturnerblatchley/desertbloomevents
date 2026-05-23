@@ -1285,10 +1285,15 @@ Color: var(--paper);
 .dropcap {line-height: .5;
   padding: .9rem .2rem 0 0;}
 }
+@media (max-width: 394px) {
+    #invitation .chapter-title {
+        font-size: 2.6rem;
+    }
+}
 
 @media (max-width: 360px) {
     #invitation .chapter-title {
-        font-size: 2.3rem;
+        font-size: 2.1rem;
     }
 }
 
