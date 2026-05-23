@@ -1286,6 +1286,18 @@ Color: var(--paper);
   padding: .9rem .2rem 0 0;}
 }
 
+@media (max-width: 360px) {
+    #invitation .chapter-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 320px) {
+    #invitation .chapter-title {
+        font-size: 2.1rem;
+    }
+}
+
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
     *,
