@@ -87,7 +87,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
         const targetId = link.getAttribute('href');
         if (targetId === '#') return;
 
-        const target = document.querySelector(targetId);
+        const target = document.querySelector(targetId); 
         if (!target) return;
 
         e.preventDefault();
@@ -98,3 +98,41 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
         window.scrollTo({ top, behavior: 'smooth' });
     });
 });
+
+// ============================================
+// WORD ROTATOR — words slide up; leaver out the top, next one in from below
+// ============================================
+(function() {
+    const words = document.querySelectorAll('.rotator-word');
+    if (words.length < 2) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // When a leaving word finishes its slide-out, snap it back down to the
+    // "parked below" default position with no transition, so it's invisibly
+    // re-armed for its next turn. Without this, removing is-leaving later
+    // would visibly drag the word back down through the box.
+    words.forEach((word) => {
+        word.addEventListener('transitionend', (e) => {
+            if (e.propertyName !== 'transform') return;
+            if (!word.classList.contains('is-leaving')) return;
+            word.style.transition = 'none';
+            word.classList.remove('is-leaving');
+            // Force a reflow so the style change applies without animating
+            void word.offsetWidth;
+            word.style.transition = '';
+        });
+    });
+
+    let idx = 0;
+    setInterval(() => {
+        const current = words[idx];
+        const nextIdx = (idx + 1) % words.length;
+        const next = words[nextIdx];
+
+        current.classList.remove('is-active');
+        current.classList.add('is-leaving');
+        next.classList.add('is-active');
+
+        idx = nextIdx;
+    }, 2800);
+})();

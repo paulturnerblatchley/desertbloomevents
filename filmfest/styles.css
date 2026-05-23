@@ -857,36 +857,76 @@ Color: var(--paper);
     color: var(--mustard);
 }
 
+/* ============================================
+   ROTATOR — sizer holds the baseline; stage clips the slide
+   ============================================ */
 .rotator {
+    /* Outer: an inline-block that sits in the text flow.
+       Its baseline comes from the sizer's text — same as any other word. */
     display: inline-block;
-    height: .75em; 
-    overflow: hidden;  
-    position: relative; 
-    top: 4px;  
-    padding-right: 6px 
+    position: relative;
+    vertical-align: baseline;
+    line-height: 1;
 }
 
-.word-wrapper {
-    display: flex;
-    flex-direction: column;
-    animation: rotate 25s infinite ease-in;
+/* Invisible stack of all words. Sets the rotator's width to the widest
+   word and provides the in-flow text that anchors the baseline. */
+.rotator-sizer {
+    display: inline-grid;
+    grid-template-columns: 1fr;
+    visibility: hidden;
+    font-style: italic;
+    line-height: 1;
+    white-space: nowrap;
 }
 
-.word {
-    line-height: .75em;
+.rotator-sizer > span {
+    grid-row: 1;
+    grid-column: 1;
 }
 
+/* The animation stage overlays the sizer. Extends slightly past the
+   line-box top and bottom so italic ascenders aren't clipped, and
+   so words can slide fully out of view before becoming visible again. */
+.rotator-stage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -0.12em;
+    bottom: -0.12em;
+    overflow: hidden;
+    pointer-events: none;
+}
 
-@keyframes rotate {
-    0%, 9% { transform: translateY(-0.01em); }
-    10%, 20% { transform: translateY(-.76em); }
-    21%, 32% { transform: translateY(-1.51em); }
-    33%, 44% { transform: translateY(-2.26em); } 
-    45%, 56% { transform: translateY(-3.01em); }
-    57%, 69% { transform: translateY(-3.76em); }
-    70%, 82% { transform: translateY(-4.51em); }
-    83%, 98% { transform: translateY(-5.26em); }
-    99%, 100% { transform: translateY(-6.01em); }
+.rotator-word {
+    position: absolute;
+    left: 0;
+    right: 0;
+    /* Counter the stage's vertical expansion so the word lands exactly
+       on the line of surrounding text when active. */
+    top: 0.12em;
+    line-height: 1;
+    font-style: italic;
+    color: var(--mustard);
+    text-align: center;
+    white-space: nowrap;
+    /* Default: parked just below the visible area, ready to slide up. */
+    transform: translateY(110%);
+    transition: transform 0.7s cubic-bezier(0.55, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.rotator-word.is-active {
+    transform: translateY(0);
+}
+
+.rotator-word.is-leaving {
+    /* Slide up and out the top of the stage. */
+    transform: translateY(-110%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rotator-word { transition: none; }
 }
 
 .closing-ctas {
