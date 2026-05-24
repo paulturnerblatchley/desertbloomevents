@@ -485,6 +485,9 @@ margin-left: -170px;
     font-weight: 400;
     max-width: 18ch;
 }
+#invitation .chapter-title {
+        margin-bottom: 5rem;
+}
 
 .chapter-title em {
     font-style: italic;
@@ -1072,6 +1075,9 @@ Color: var(--paper);
         max-width: 500px;
         margin: 0 auto;
     }
+    #invitation .chapter-title {
+        margin-bottom: 4rem;
+    }
 
     .margin-note-invitation {
         top: -5rem;
@@ -1298,7 +1304,6 @@ Color: var(--paper);
     }
 #invitation .chapter-title {
   font-size: 2.8rem;
-  margin-bottom: 4rem;
 }
 .dropcap {line-height: .5;
   padding: .9rem .2rem 0 0;}
