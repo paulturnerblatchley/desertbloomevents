@@ -169,11 +169,15 @@ img {
 .hero-eyebrow {
     font-family: var(--serif-body);
     font-style: italic;
-    font-size: 0.95rem;
+    font-size: 1rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--mustard);
     margin-bottom: 1.5rem;
+}
+
+.eyebrow-sep {
+    margin: 0 0.7rem;
 }
 
 /* THE CURSE TITLE — the centerpiece */
@@ -844,7 +848,7 @@ Color: var(--paper);
 
 .closing-title {
     font-family: var(--serif-display);
-    font-size: clamp(3rem, 8vw, 7rem);
+    font-size: clamp(2.5rem, 8vw, 7rem);
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--paper);
@@ -1091,15 +1095,26 @@ Color: var(--paper);
         padding: 0 5vw 5rem;
     }
     .hero-eyebrow {
-        font-size: 0.85rem;
+        font-size: .9rem;
         letter-spacing: 0.1em;
         text-wrap: nowrap;
-        }
+    }
+    .hero-eyebrow .eyebrow-sep {
+        display: block;
+        height: 0;
+        width: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .hero-eyebrow span:not(.eyebrow-sep) {
+        display: block;
+    }
 
     .hero-tagline {
         margin-bottom: 2rem;
     }
-.hero-skull {width:90%}
+    .hero-skull {width:90%}
 
     .hero-meta {
         margin-bottom: 2rem;
@@ -1261,15 +1276,15 @@ Color: var(--paper);
             2px 2px 0 var(--rose-deep),
             4px 4px 0 rgba(0, 0, 0, 0.5);
     }
-.hero-skull {width:80%}
-.hero-skull img {min-width: 0px}
-  .hero {
-    padding: 1rem 5vw 5rem;
-  }
+    .hero-skull {width:80%}
+    .hero-skull img {min-width: 0px}
+    .hero {
+        padding: 1rem 5vw 5rem;
+    }
   
 
     .hero-eyebrow {
-        font-size: 0.65rem;
+        font-size: 0.8rem;
         letter-spacing: 0.18em;
     }
 
