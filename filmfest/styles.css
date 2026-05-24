@@ -1078,6 +1078,9 @@ Color: var(--paper);
         bottom: -2rem;
         right: 2vw;
     }
+    .footer-contacts {
+        justify-content: start;
+    }
 }
 
 @media (max-width: 768px) {
