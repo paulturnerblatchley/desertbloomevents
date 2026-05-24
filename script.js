@@ -75,7 +75,7 @@ const revealObserver = new IntersectionObserver((entries) => {
             )) {
                 const siblings = Array.from(parent.children).filter(s => s.classList.contains('reveal'));
                 const index = siblings.indexOf(el);
-                el.style.transitionDelay = `${Math.min(index * 80, 600)}ms`;
+                el.style.transitionDelay = `${Math.min(index * 50, 250)}ms`;
             }
 
             el.classList.add('in-view');
@@ -83,8 +83,8 @@ const revealObserver = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -8% 0px'
+    threshold: 0,
+    rootMargin: '0px 0px -5% 0px'
 });
 
 document.querySelectorAll('.reveal').forEach((el) => {
