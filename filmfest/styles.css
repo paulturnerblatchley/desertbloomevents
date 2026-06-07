@@ -508,6 +508,56 @@ margin-left: -170px;
     margin-left: 0;
 }
 
+a.past-years {
+    font-size: 1.35rem;
+    line-height: 1.65;
+    color: var(--rose-deep);
+    text-decoration: none;
+    font-weight: bold;
+    background-image: linear-gradient(
+        to right,
+        var(--paper-ink) 0%,
+        var(--paper-ink) 50%,
+        var(--rose-deep) 50%
+    );
+    background-size: 200% 100%;
+    background-position: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+a.past-years::after {
+    content: ' →';
+    font-family: var(--serif-display);
+    font-size: 1.1em;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+a.past-years::before {
+    content: '';
+    background: var(--paper-shadow);
+    display: block;
+    position: absolute;
+    bottom: 67px;
+    left: 0;
+    width: 0;
+    height: 10px;
+    opacity: .8;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
+
+a.past-years:hover {
+    background-position: -100%;
+}
+
+a.past-years:hover::before {
+    width: 175px;
+}
+
+
 /* ============================================
    PROSE
    ============================================ */
